@@ -3,4 +3,4 @@ raspberry_pi projects
 
 ## Projects
 + [simple_button_game](https://github.com/sammiee5311/simple_button_game)
-+ [self_driving_car](in progress)
++ self_driving_car(in progress)
