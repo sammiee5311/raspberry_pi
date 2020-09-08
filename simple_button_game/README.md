@@ -6,10 +6,10 @@ memorize which light was on each stages and push the buttons which are connected
 the light will be turned on(1 seconds) randomly on each stages.
 
 ## How it works
-![](image.gif)
+![](/images/button.gif)
 
 ## How to set up
-![](image.jpg)
+![](/images/gpio.jpg)
 (https://www.raspberrypi.org/documentation/usage/gpio/)
 
 + GPIO 17 - led 1 connected GPIO 26 - button 1
