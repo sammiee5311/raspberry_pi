@@ -1,4 +1,4 @@
-# simple_button_game
+# Simple_button_game
 a game, playing with raspberry pi 4.
 
 memorize which light was on each stages and push the buttons which are connected to the same lights.
