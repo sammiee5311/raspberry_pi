@@ -1,9 +1,9 @@
-# patrol car
+# Patrol car
 in progress
 
-## images
+## Images
 
-## requirements
+## Requirements
 + opencv
 + cmake
 + dlib
