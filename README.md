@@ -1,4 +1,4 @@
-# raspberry_pi
+# Raspberry_pi
 raspberry_pi projects
 
 ## Projects
