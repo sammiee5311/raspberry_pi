@@ -8,3 +8,6 @@ in progress
 + cmake
 + dlib
 + face_recognition
+
+## Reference
++ SunFounder
