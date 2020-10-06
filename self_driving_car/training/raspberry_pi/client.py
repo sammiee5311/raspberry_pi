@@ -19,8 +19,7 @@ try:
         message_size = struct.pack('L', len(data))
         client_socket.sendall(message_size+data)
         steering_value = client_socket.recv(10)
-        # print(struct.unpack('B', b)[0])
-
+        
 
 except Exception as e:
     print("General error", str(e))
