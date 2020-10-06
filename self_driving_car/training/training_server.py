@@ -3,10 +3,10 @@ import pickle
 import cv2
 import numpy as np
 import struct
+import pandas
 
 IP = '127.0.0.1'
 PORT = 15946
-input_size = 480*320
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -18,8 +18,10 @@ print("waiting for connection")
 connection, address = server_socket.accept()
 
 cnt = 0
+steering_value = 0
 
 X = []
+y = []
 
 try:
     bytes = b''
@@ -43,10 +45,9 @@ try:
         image = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         height,width = image.shape
         roi = image[height // 2:height, :]
-        # tmp = roi.reshape(1, height // 2 * width).astype(np.float32)
-        # X = np.vstack((X, tmp))
         cv2.imshow('frame', roi)
         X.append(roi)
+        y.append(steering_value)
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
             break
@@ -54,7 +55,8 @@ try:
         for img in X:
             cnt += 1
             cv2.imwrite(str(cnt)+'.jpg')
-        # np.savez('save.npz', train=X)
+        df = pd.dataFrame({'img' : X, 'steering_value': y})
+        df.to_csv('model.csv')
     except IOError as e:
         print(e)
 
