@@ -59,7 +59,7 @@ model.compile(optimizer='adam',
 
 callbacks = [
     keras.callbacks.ModelCheckpoint(
-        filepath='my_model1.h5',
+        filepath='my_model.h5',
         monitor='val_loss',
         save_best_only=True
     )
@@ -68,7 +68,7 @@ callbacks = [
 train_generator = train_datagen.flow(
     X_train,
     y_train,
-    batch_size=20
+    batch_size=32
 )
 
 validation_generator = test_datagen.flow(
