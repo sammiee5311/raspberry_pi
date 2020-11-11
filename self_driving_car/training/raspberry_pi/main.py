@@ -42,7 +42,7 @@ def main():
         img.save(path+str(i)+'.jpg')
         cnt += 1
 
-    df = pd.DataFrame({'steering' : y})
+    df = pd.DataFrame({'img' : img_name, 'steering' : y})
     df.to_csv('save.csv')
 
 
