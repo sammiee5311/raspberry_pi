@@ -34,10 +34,13 @@ def main():
         if ct_val['x']:
            break
         cv2.waitKey(1)
-
+    cnt = 0
+    img_name = []
     for i in range(len(X)):
-       img = Image.fromarray(X[i])
-       img.save(path+str(i)+'.jpg')
+        img_name.append(cnt)
+        img = Image.fromarray(X[i])
+        img.save(path+str(i)+'.jpg')
+        cnt += 1
 
     df = pd.DataFrame({'steering' : y})
     df.to_csv('save.csv')
