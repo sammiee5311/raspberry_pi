@@ -23,6 +23,6 @@ while True:
  
     client.sendall((str(len(stringData))).encode().ljust(16) + stringData)
     steering_value = client.recv(10)
-    print(struct.unpack('B',steering_value)[0])
+    steering_value = struct.unpack('f',steering_value)[0])
  
 cap.release()
