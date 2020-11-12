@@ -10,10 +10,10 @@ steering_value = b''
  
 cap = cv2.VideoCapture(0)
  
-cap.set(3, 480);
-cap.set(4, 240);
+# cap.set(3, 480);
+# cap.set(4, 240);
  
-encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]
  
 while True:
     ret, frame = cap.read()
