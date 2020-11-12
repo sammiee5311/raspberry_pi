@@ -3,14 +3,14 @@ import cv2
 import struct
 import pickle
 
-IP = '127.0.0.1'
-PORT = 15946
+IP = ''
+PORT = 
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((IP, PORT))
 
 try:
-    cap = cv2.VideoCapture('test.mp4')
+    cap = cv2.VideoCapture(0)
     while True:
         cnt += 1
         _, image = cap.read()
