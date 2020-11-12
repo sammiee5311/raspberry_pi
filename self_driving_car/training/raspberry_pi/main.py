@@ -18,11 +18,8 @@ def main():
     maxThrottle = 0.25
     while True:
         _, image = cap.read()
-        # image_cp = image.copy()
-        # image_cp = cv2.cvtColor(image_cp,cv2.COLOR_RGB2GRAY)
         # height, width = image_cp.shape
         # roi = image_cp[int(height/2):height,:]
-        # cv2.imshow('img',image)
         ct_val = ct.getJS()
         steering = ct_val['axis1']*0.4
         throttle = ct_val['o']*maxThrottle
