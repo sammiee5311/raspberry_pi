@@ -5,7 +5,7 @@ import pickle
 import numpy as np
  
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('', ))
+client.connect(('IP', PORT))
 steering_value = b''
  
 cap = cv2.VideoCapture(0)
