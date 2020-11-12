@@ -16,10 +16,9 @@ df = pd.read_csv("save.csv")
 
 for i in range(len(df)):
     value = df.iloc[i]
-    img = cv2.imread(path+str(cnt)+'.jpg')
+    img = cv2.imread(path+str(int(value[1]))+'.jpg')
     images.append(img)
-    steering.append(value[1])
-    cnt += 1
+    steering.append(value[2])
 
 images = np.asarray(images)
 steering = np.asarray(steering)
@@ -68,7 +67,7 @@ callbacks = [
 train_generator = train_datagen.flow(
     X_train,
     y_train,
-    batch_size=32
+    batch_size=16
 )
 
 validation_generator = test_datagen.flow(
