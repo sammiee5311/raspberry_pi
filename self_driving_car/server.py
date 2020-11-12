@@ -15,19 +15,9 @@ def recvall(sock, count):
     return buf
 
 
-model = load_model('my_model2.h5')
-IP = '192.168.0.18'
-PORT = 9484
-input_size = 480*320
-
-frame = cv2.imread('./training/Images/1916.jpg')
-
-h, w, _ = frame.shape
-roi = frame[int(h / 2):h, :, :]
-roi = np.asarray(roi)
-roi = roi / 225.
-roi = np.array([roi])
-steering_value = model.predict(roi)
+model = load_model('')
+IP = ''
+PORT = 
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -37,7 +27,7 @@ server_socket.bind((IP, PORT))
 server_socket.listen(1)
 
 connection, address = server_socket.accept()
-# steering_value = 0
+steering_value = 0
 
 while True:
     length = recvall(connection, 16)
