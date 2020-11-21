@@ -4,7 +4,6 @@ import pandas as pd
 import cv2
 import os
 import numpy as np
-from PIL import Image
 
 motor = Motor(5, 27, 17, 6, 23, 22)
 path = './Images/'
@@ -15,11 +14,9 @@ def main():
     X = []
     y = []
     cnt = 0
-    maxThrottle = 0.25
+    maxThrottle = 0.11
     while True:
         _, image = cap.read()
-        # height, width = image_cp.shape
-        # roi = image_cp[int(height/2):height,:]
         ct_val = ct.getJS()
         steering = ct_val['axis1']*0.4
         throttle = ct_val['o']*maxThrottle
@@ -31,6 +28,7 @@ def main():
         if ct_val['x']:
            break
         cv2.waitKey(1)
+        
     cnt = 0
     img_name = []
     for i in range(len(X)):
