@@ -26,24 +26,26 @@ print("waiting for connection")
 server_socket.bind((IP, PORT))
 server_socket.listen(1)
 
+values = {0 : 0.12, 1 : 0.13, 2 : 0.135, 3 : 0, 4: -0.12, 5 : -0.13, 6 : -0.135}
+
 connection, address = server_socket.accept()
-steering_value = 0
 
 while True:
     length = recvall(connection, 16)
     stringData = recvall(connection, int(length))
     data = np.frombuffer(stringData, dtype='uint8')
     frame = cv2.imdecode(data, cv2.IMREAD_COLOR)
-    # cv2.imshow('img', frame)
+    frame = cv2.cvtColor(frame, cv2.COLOR_RGB2YUV)
+    frame = cv2.GaussianBlur(frame,  (3, 3), 0)
     h, w, _ = frame.shape
     roi = frame[int(h / 2):h, :, :]
     roi = np.asarray(roi)
+    roi = roi.astype('float32')
     roi = roi / 225.
     roi = np.array([roi])
     if len(roi.shape) == 4:
         steering_value = model.predict(roi)
-        print(steering_value)
-        connection.send(struct.pack('f', steering_value[0][0]))
+        connection.send(struct.pack('f', values[steering_value[0].argmax()]))
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
