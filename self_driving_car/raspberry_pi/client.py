@@ -6,9 +6,11 @@ import numpy as np
 from motor_module import Motor
 
 motor = Motor(5, 27, 17, 6, 23, 22)
- 
+IP =  
+PORT = 
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('192.168.0.18', 9484))
+s.connect(('IP', PORT))
 steering_value = b''
  
 cam = cv2.VideoCapture(0)
