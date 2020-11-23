@@ -4,7 +4,6 @@ import pandas as pd
 import cv2
 import os
 import numpy as np
-from PIL import Image
 
 motor = Motor(5, 27, 17, 6, 23, 22)
 path = './Images/'
