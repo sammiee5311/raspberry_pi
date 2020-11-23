@@ -14,7 +14,6 @@ def main():
     cap = cv2.VideoCapture(0)
     X = []
     y = []
-    cnt = 0
     Flag = True
     print("start")
     while True:
@@ -44,7 +43,6 @@ def main():
         if not Flag:   
             X.append(image)
             y.append(value)
-            cnt += 1
             
         if ct_val['x']:
             if Flag:
