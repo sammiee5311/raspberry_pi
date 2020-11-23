@@ -3,5 +3,5 @@ raspberry_pi projects
 
 ## Projects
 + [simple_button_game](https://github.com/sammiee5311/raspberry_pi/tree/master/simple_button_game)
-+ [self_driving_car(in progress)](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car)
++ [self_driving_car(version 0.5)](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car)
 + [google assistant(in progress)](https://github.com/sammiee5311/raspberry_pi/blob/master/google_assistant)
