@@ -13,6 +13,8 @@ images = []
 steering = []
 cnt = 0
 
+
+one_hot = {-3 : 0 , -2 : 1, -1 : 2, 0 : 3, 1 : 4, 2 : 5, 3 : 6}
 df = pd.read_csv("save.csv")
 
 for i in range(len(df)):
@@ -30,22 +32,10 @@ for i in range(len(df)):
     steering.append(val)
     cnt[val] += 1
 
+    
+# one_hot_encoding
 for i,v in enumerate(steering):
-    if v == -3:
-        values[i][0] = 1
-    elif v == -2:
-        values[i][1] = 1
-    elif v == -1:
-        values[i][2] = 1
-    elif v == 0:
-        values[i][3] = 1
-    elif v == 1:
-        values[i][4] = 1
-    elif v == 2:
-        values[i][5] = 1
-    elif v == 3:
-        values[i][6] = 1
-
+    values[i][one_hot[v]] = 1
 
 images = np.asarray(images)
 values = np.asarray(values)
