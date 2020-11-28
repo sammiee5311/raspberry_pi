@@ -10,7 +10,7 @@ https://sammiee5311.github.io/raspi/Raspi-Self-Driving/
 ## Todo
 + move aside from the object which is detected.
 + detect light(green/red)
-+ measure distance
++ ~~measure distance~~
 
 ## Reference
 https://www.murtazahassan.com/courses/self-driving-car-using-raspberry-pi/
