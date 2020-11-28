@@ -11,12 +11,9 @@ class Ultrasonic:
 
     def set_GPIO(self):
         GPIO.setmode(GPIO.BCM)
-
         GPIO.setup(self.TRIG, GPIO.OUT)
         GPIO.setup(self.ECHO, GPIO.IN)
         GPIO.output(self.TRIG, False)
-        print('Waiting For Sensor To Ready')
-        time.sleep(1)
 
     def get_distance(self):
             
@@ -37,7 +34,6 @@ class Ultrasonic:
                 break
 
         pulse_duration = (pulse_end - pulse_start) * 1000000
-
         distance = (pulse_duration / 2) / 29.1
         
         return int(distance)
@@ -48,3 +44,4 @@ if __name__ == '__main__':
     a.set_GPIO()
     b = a.get_distance()
     GPIO.cleanup()
+
