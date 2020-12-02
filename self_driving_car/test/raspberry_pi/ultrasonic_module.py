@@ -6,7 +6,7 @@ class Ultrasonic:
     def __init__(self):
         self.TRIG = 4
         self.ECHO = 24
-        self.MAX_DISTANCE = 300
+        self.MAX_DISTANCE = 50
         self.MAX_TIMEOUT = (self.MAX_DISTANCE * 2 * 29.1)
 
     def set_GPIO(self):
