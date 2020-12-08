@@ -4,6 +4,9 @@ My Self-Driving car is described a link below.
 https://sammiee5311.github.io/raspi/Raspi-Self-Driving/ <br>
 https://sammiee5311.github.io/raspi/raspi-Self-Driving(2)/
 
+## Motivation
+Among the rapid entry into the Fourth Industrial Revolution, self-driving cars are easily accessible and have many things to learn.
+
 ## Images
 
 ![](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/car.gif)
