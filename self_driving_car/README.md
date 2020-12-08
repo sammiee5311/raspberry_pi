@@ -10,6 +10,7 @@ Among the rapid entry into the Fourth Industrial Revolution, self-driving cars a
 ## Images
 
 ![](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/car.gif)
+![](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/object_detection.gif)
 
 ## Todo
 + ~~move aside from the object which is detected.~~
