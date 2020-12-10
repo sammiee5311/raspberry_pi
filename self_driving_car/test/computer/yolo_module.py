@@ -4,12 +4,13 @@ import numpy as np
 
 class Object_Detection:
     def __init__(self):
-        self.net = cv2.dnn.readNet("./yolo_file/yolov3-tiny.weights", "./yolo_file/yolov3-tiny.cfg")
+        self.net = cv2.dnn.readNet("./yolo_file/yolov3-tiny_obj_best.weights", "./yolo_file/yolov3-tiny.cfg")
         self.layer_names = self.net.getLayerNames()
         self.output_layers = [self.layer_names[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
 
     def detect_object(self, img):
         x, y, w, h = -1, -1, -1, -1
+        img = cv2.resize(img, None, fx=0.4, fy=0.4)
         height, width, _ = img.shape
 
         blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
@@ -31,7 +32,8 @@ class Object_Detection:
                     x = int(center_x - w / 2)
                     y = int(center_y - h / 2)
 
-                    return x, y, w, h
+                    return img, x, y, w, h
 
-        return x, y, w, h
+        return img, x, y, w, h
+
 
