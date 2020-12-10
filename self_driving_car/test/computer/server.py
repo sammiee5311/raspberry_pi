@@ -4,6 +4,10 @@ import numpy as np
 import struct
 from keras.models import load_model
 
+##################################################
+from yolo_module import Object_Detection
+from side_module import Object_Location
+##################################################
 
 def recvall(sock, count):
     buf = b''
@@ -18,6 +22,9 @@ def recvall(sock, count):
 model = load_model('')
 IP = ''
 PORT = 
+
+OD = Object_Detection()
+OL = Object_Location()
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -44,8 +51,19 @@ while True:
     roi = roi / 225.
     roi = np.array([roi])
     if len(roi.shape) == 4:
+        changed_img, object_x, object_y, object_w, object_h = OD.detect_object(original_img)
+        percentage, direction = 100, None
+        if object_x != -1:
+            percentage, direction = OL.get_alternative_steering_value(changed_img, object_x, object_w)
         steering_value = model.predict(roi)
-        connection.send(struct.pack('f', values[steering_value[0].argmax()]))
+        if percentage > 70:
+            connection.send(struct.pack('f', values[steering_value[0].argmax()]))
+        else:
+            if direction == 'LEFT':
+                connection.send(struct.pack('f', (values[2]+0.005)*(1-percentage*0.01))
+            else:
+                connection.send(struct.pack('f',(values[6]-0.005)*(1-percentage*0.01)))
+
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
