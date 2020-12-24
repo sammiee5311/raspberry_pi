@@ -1,4 +1,4 @@
-# Self_driving_car(version 0.7) 
+# Self_driving_car(version 1.0) 
 My Self-Driving car is described a link below.
 
 https://sammiee5311.github.io/raspi/Raspi-Self-Driving/ <br>
@@ -14,7 +14,6 @@ Among the rapid entry into the Fourth Industrial Revolution, self-driving cars a
 
 ## Todo
 + ~~move aside from the object which is detected.~~
-+ detect light(green/red)
 + ~~measure distance~~
 
 ## Reference
