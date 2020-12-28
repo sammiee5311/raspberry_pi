@@ -8,9 +8,10 @@ https://sammiee5311.github.io/raspi/raspi-Self-Driving(2)/
 Among the rapid entry into the Fourth Industrial Revolution, self-driving cars are easily accessible and have many things to learn.
 
 ## Images
-![](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/car.gif)
-
-![](https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/object_detection.gif)
+<p float="left">
+  <img src="https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/car.gif" width="450" />
+  <img src="https://github.com/sammiee5311/raspberry_pi/blob/master/self_driving_car/images/object_detection.gif" width="450" /> 
+</p>
 
 ## Todo
 + ~~move aside from the object which is detected.~~
